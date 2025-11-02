@@ -2,9 +2,9 @@ name: Integration
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "workflow/integration" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "workflow/integration" ]
 
 jobs:
   build:
