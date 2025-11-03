@@ -2,7 +2,7 @@ name: Deploy
 
 on:
   push:
-    branches: [ "main", "workflow/integration" ]
+    branches: [ "main" ]
 
 
 jobs:
