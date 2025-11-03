@@ -1,0 +1,22 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ "main", "workflow/integration" ]
+
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+
+    steps:
+    - uses: actions/checkout@v4  # used for curring repository
+    - run: docker build . -t awm01/testci_cd-next-js-app # build docker image  
+    - run: echo "${{secrets.DOCKER_ACC_PERSONAL_ACCESSTOKEN}}" | docker login -u ${{secrets.DOCKER_USR}} --password-stdin
+    - run: docker push awm01/testci_cd-next-js-app
+
+
+
+  
